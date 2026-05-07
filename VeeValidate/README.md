@@ -1,5 +1,96 @@
-# Vue 3 + Vite
+# часть 1 -  VeeValidate
+# часть 2 -  Routing
+# часть 3 -  Pinia
+  
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+работа с валидацией форм во Vue 3 с использованием библиотеки **VeeValidate**.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+1. Реализация формы регистрации с валидацией.
+
+---
+
+# Часть 1. Форма регистрации с VeeValidate
+
+- `email`;
+- `password`;
+- checkbox `I agree with license agreement`.
+
+валидация с использованием библиотеки **VeeValidate**.
+
+## Реализованный функционал
+
+В форме реализованы следующие проверки.
+
+### Email
+
+Поле `email` должно содержать корректный email-адрес.
+
+Если email введён некорректно, поле подсвечивается красной рамкой. Если email корректный — зелёной рамкой. Пустое поле не подсвечивается.
+
+### Password
+
+Поле `password` должно соответствовать:
+
+- длина не менее 8 символов;
+- наличие цифры;
+- наличие буквы нижнего регистра;
+- наличие буквы верхнего регистра;
+- наличие спецсимвола.
+
+Выполненные критерии подсвечиваются зелёным цветом, невыполненные — красным.
+
+### License agreement
+
+Для завершения регистрации пользователь должен отметить checkbox:
+
+```text
+I agree with license agreement
+```
+
+Без отметки этого пункта кнопка регистрации остаётся неактивной.
+
+## Поведение кнопки регистрации
+
+Кнопка `Register` становится активной только при выполнении всех условий:
+
+- email заполнен корректно;
+- пароль соответствует всем критериям;
+- checkbox согласия отмечен.
+
+Если хотя бы одно условие не выполнено, кнопка остаётся неактивной.
+
+## Структура проекта
+
+```text
+VeeValidate/
+├── public/
+├── src/
+│   ├── App.vue
+│   ├── main.js
+│   └── style.css
+```
+
+##  файлы
+
+### `src/App.vue`
+
+В нём находится:
+
+- разметка формы регистрации;
+- подключение `useForm` и `useField`;
+- функции валидации email, password и checkbox;
+- логика активации кнопки регистрации;
+- список критериев пароля.
+
+
+
+Запустить проект:
+
+```bash
+npm run dev
+```
+
+---
+
+
+---
